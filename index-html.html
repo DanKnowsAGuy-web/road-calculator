@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Construction Impact Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <h1>
+                <svg class="calculator-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="2" width="16" height="20" rx="2" />
+                    <line x1="8" y1="6" x2="16" y2="6" />
+                    <line x1="8" y1="10" x2="10" y2="10" />
+                    <line x1="12" y1="10" x2="14" y2="10" />
+                    <line x1="16" y1="10" x2="16" y2="10" />
+                    <line x1="8" y1="14" x2="10" y2="14" />
+                    <line x1="12" y1="14" x2="14" y2="14" />
+                    <line x1="16" y1="14" x2="16" y2="14" />
+                    <line x1="8" y1="18" x2="10" y2="18" />
+                    <line x1="12" y1="18" x2="14" y2="18" />
+                    <line x1="16" y1="18" x2="16" y2="18" />
+                </svg>
+                Your Road Construction Impact Calculator
+            </h1>
+            <p>Estimate Your Approximate Savings & Impact - Clarify with a 15 minute consultation or Verify with On-Site testing.</p>
+        </div>
+
+        <div class="calculator-inputs">
+            <h2>Project Parameters</h2>
+            <p class="quote">"For every $1 saved cutting corners on the subgrade, you'll spend $4-7 more on layers above it..." (Federal Highway Administration)</p>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="soil-type">Soil Type (USCS Classification)</label>
+                    <select id="soil-type">
+                        <optgroup label="Standard Soil Types">
+                            <option value="GW" selected>GW - Well-graded gravel</option>
+                            <option value="GM">GM - Silty gravel</option>
+                            <option value="SW">SW - Well-graded sand</option>
+                            <option value="SM">SM - Silty sand</option>
+                        </optgroup>
+                        <optgroup label="Moderately Challenging Soil Types">
+                            <option value="GP">GP - Poorly-graded gravel</option>
+                            <option value="GC">GC - Clayey gravel</option>
+                            <option value="SP">SP - Poorly-graded sand</option>
+                            <option value="SC">SC - Clayey sand</option>
+                        </optgroup>
+                        <optgroup label="Highly Challenging Soil Types">
+                            <option value="ML">ML - Low plasticity silt</option>
+                            <option value="CL">CL - Low plasticity clay</option>
+                            <option value="OL">OL - Low plasticity organic soil</option>
+                            <option value="MH">MH - High plasticity silt</option>
+                            <option value="CH">CH - High plasticity clay</option>
+                            <option value="OH">OH - High plasticity organic soil</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Project Type</label>
+                    <div class="button-group">
+                        <button class="project-type-btn" data-type="Rural Road">Rural Road</button>
+                        <button class="project-type-btn" data-type="Local Road">Local Road</button>
+                        <button class="project-type-btn project-type-selected" data-type="Highway">Highway</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2 class="section-title">Overall Project Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card blue">
+                    <h3>Total Cost Savings</h3>
+                    <p class="summary-value" id="cost-savings">~0.0%</p>
+                    <p class="citation">78% of premature road failures originate in foundation layers.</p>
+                </div>
+                <div class="summary-card green">
+                    <h3>Time Reduction</h3>
+                    <p class="summary-value" id="time-reduction">~0.0%</p>
+                </div>
+                <div class="summary-card purple">
+                    <h3>Extended Increased Lifespan</h3>
+                    <p class="summary-value" id="lifespan-extension">~0.0%</p>
+                </div>
+                <div class="summary-card orange">
+                    <h3>Maintenance Reduction</h3>
+                    <p class="summary-value" id="maintenance-reduction">~0.0%</p>
+                    <p class="citation">Maintenance intervals extend by 35-45% with proper stabilization.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2 class="section-title">Layer-by-Layer Breakdown</h2>
+            
+            <div class="layer-section" id="subgrade-layer">
+                <h3 class="layer-title">
+                    <span class="layer-number">1</span>
+                    Subgrade Layer
+                </h3>
+                <div class="layer-grid">
+                    <div class="layer-details">
+                        <p><strong>Percentage of total project cost:</strong> <span class="layer-cost-percent">~0.0%</span></p>
+                        <p><strong>Dollar savings for this layer:</strong> <span class="layer-dollar-savings">~0.0%</span> of total project</p>
+                        <p><strong>Percentage savings for this layer:</strong> <span class="layer-savings-percent">~0.0%</span></p>
+                        
+                        <div class="layer-issues">
+                            <h4>Traditional Method Issues:</h4>
+                            <ul>
+                                <li>Requires excavation and removal of existing soils</li>
+                                <li>Requires importing and placing engineered fill materials</li>
+                                <li>Requires specialized equipment and experienced operators</li>
+                                <li>Often becomes the source of 78% of road failures</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="layer-costs">
+                        <h4>Traditional Costs Include:</h4>
+                        <ul>
+                            <li>Excavation and soil removal: 25-35% of layer cost</li>
+                            <li>Transportation and disposal fees: 15-25% of layer cost</li>
+                            <li>Imported engineered fill: 30-40% of layer cost</li>
+                        </ul>
+                        
+                        <div class="layer-advantages">
+                            <h4>Our Solution Advantages:</h4>
+                            <ul>
+                                <li>Eliminates 80-90% of excavation and replacement costs</li>
+                                <li>Stabilizes existing soils in-place with molecular bonding</li>
+                                <li>Creates a uniform, stable foundation for all layers above</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="layer-citation">Subbase thickness increases by 35-50% when subgrade fails.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="layer-section" id="subbase-layer">
+                <h3 class="layer-title">
+                    <span class="layer-number">2</span>
+                    Subbase Layer
+                </h3>
+                <div class="layer-grid">
+                    <div class="layer-details">
+                        <p><strong>Percentage of total project cost:</strong> <span class="layer-cost-percent">~0.0%</span></p>
+                        <p><strong>Dollar savings for this layer:</strong> <span class="layer-dollar-savings">~0.0%</span> of total project</p>
+                        <p><strong>Percentage savings for this layer:</strong> <span class="layer-savings-percent">~0.0%</span></p>
+                        
+                        <div class="layer-issues">
+                            <h4>Traditional Method Issues:</h4>
+                            <ul>
+                                <li>Requires premium processed aggregates</li>
+                                <li>Materials often transported from distant quarries</li>
+                                <li>Needs precise grading and compaction</li>
+                                <li>Increases thickness by 35-50% when subgrade is weak</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="layer-costs">
+                        <h4>Traditional Costs Include:</h4>
+                        <ul>
+                            <li>Material costs: 50-60% of layer cost</li>
+                            <li>Transportation: 15-25% of layer cost</li>
+                            <li>Placement and compaction: 15-20% of layer cost</li>
+                        </ul>
+                        
+                        <div class="layer-advantages">
+                            <h4>Our Solution Advantages:</h4>
+                            <ul>
+                                <li>40-60% material cost reduction</li>
+                                <li>Creates molecular bonds between aggregate particles</li>
+                                <li>Allows use of lower-quality, locally available materials</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="layer-citation">Material quality requirements decrease by 15-25% with proper stabilization.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="layer-section" id="base-layer">
+                <h3 class="layer-title">
+                    <span class="layer-number">3</span>
+                    Base Layer
+                </h3>
+                <div class="layer-grid">
+                    <div class="layer-details">
+                        <p><strong>Percentage of total project cost:</strong> <span class="layer-cost-percent">~0.0%</span></p>
+                        <p><strong>Dollar savings for this layer:</strong> <span class="layer-dollar-savings">~0.0%</span> of total project</p>
+                        <p><strong>Percentage savings for this layer:</strong> <span class="layer-savings-percent">~0.0%</span></p>
+                        
+                        <div class="layer-issues">
+                            <h4>Traditional Method Issues:</h4>
+                            <ul>
+                                <li>Requires premium processed aggregates with strict specifications</li>
+                                <li>Needs specialized equipment for placement and compaction</li>
+                                <li>Often requires excessive thickness to compensate for weak layers below</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="layer-costs">
+                        <h4>Traditional Costs Include:</h4>
+                        <ul>
+                            <li>Premium aggregate materials: 55-65% of layer cost</li>
+                            <li>Transportation from quarries: 15-20% of layer cost</li>
+                            <li>Specialized placement equipment: 10-15% of layer cost</li>
+                        </ul>
+                        
+                        <div class="layer-advantages">
+                            <h4>Our Solution Advantages:</h4>
+                            <ul>
+                                <li>Allows use of 50-70% less expensive local materials</li>
+                                <li>Creates powerful molecular bonds between aggregate particles</li>
+                                <li>Reduces thickness requirements by 15-25%</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="layer-citation">Base layer requires 25-35% more premium materials with weak foundations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="layer-section" id="surface-layer">
+                <h3 class="layer-title">
+                    <span class="layer-number">4</span>
+                    Surface Layer
+                </h3>
+                <div class="layer-grid">
+                    <div class="layer-details">
+                        <p><strong>Percentage of total project cost:</strong> <span class="layer-cost-percent">~0.0%</span></p>
+                        <p><strong>Dollar savings for this layer:</strong> <span class="layer-dollar-savings">~0.0%</span> of total project</p>
+                        <p><strong>Percentage savings for this layer:</strong> <span class="layer-savings-percent">~0.0%</span></p>
+                        
+                        <div class="layer-issues">
+                            <h4>Traditional Method Issues:</h4>
+                            <ul>
+                                <li>Requires specialized hot-mix asphalt plants or concrete</li>
+                                <li>Burns massive amounts of fuel heating materials</li>
+                                <li>Needs regular replacement (30% more frequent with poor foundation)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="layer-costs">
+                        <h4>Traditional Costs Include:</h4>
+                        <ul>
+                            <li>Materials (asphalt/concrete): 45-55% of layer cost</li>
+                            <li>Fuel for heating/processing: 10-15% of layer cost</li>
+                            <li>Specialized equipment: 15-20% of layer cost</li>
+                        </ul>
+                        
+                        <div class="layer-advantages highway">
+                            <h4>Our Solution Advantages:</h4>
+                            <ul>
+                                <li>20-30% surface material cost reduction</li>
+                                <li>Optimized asphalt thickness and extended life</li>
+                                <li>Extends maintenance intervals significantly</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="layer-advantages rural-road" style="display: none;">
+                            <h4>Our Solution Advantages:</h4>
+                            <ul>
+                                <li>60-80% surface material cost reduction</li>
+                                <li>Simple sealing instead of asphalt</li>
+                                <li>Can eliminate need for expensive asphalt/concrete</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="layer-advantages local-road" style="display: none;">
+                            <h4>Our Solution Advantages:</h4>
+                            <ul>
+                                <li>40-60% surface material cost reduction</li>
+                                <li>Thinner asphalt layer or alternative surface</li>
+                                <li>Can reduce need for expensive asphalt/concrete</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="layer-citation">Surface layer needs 30% more frequent replacement with poor foundation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2 class="section-title">Environmental Impact</h2>
+            <div class="env-grid">
+                <div class="env-card">
+                    <h3>
+                        <svg class="env-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Carbon Emission Reduction
+                    </h3>
+                    <p class="env-value" id="carbon-reduction">~0.0%</p>
+                    <ul>
+                        <li>Elimination of hot-mix processes</li>
+                        <li>Reduced equipment operation time</li>
+                    </ul>
+                </div>
+                
+                <div class="env-card">
+                    <h3>
+                        <svg class="env-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        Material Transport Reduction
+                    </h3>
+                    <p class="env-value" id="material-transport">~0.0%</p>
+                    <ul>
+                        <li>Fewer trucks on the road</li>
+                        <li>Reduced fuel consumption</li>
+                    </ul>
+                </div>
+                
+                <div class="env-card">
+                    <h3>
+                        <svg class="env-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+                        </svg>
+                        Natural Resource Conservation
+                    </h3>
+                    <p class="env-value" id="resource-conservation">~0.0%</p>
+                    <ul>
+                        <li>Using existing soil instead of quarry materials</li>
+                        <li>Zero VOCs, no petroleum, 100% green solution</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p>Savings estimates are based on industry research and typical project conditions. Actual results may vary based on specific site conditions and requirements.</p>
+            <p>This calculator provides general guidance based on soil type. A detailed soil analysis is recommended for project-specific estimates.</p>
+            <p>Cost savings represent typical project outcomes. Contact us for a detailed assessment of your specific project.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
